@@ -1,0 +1,192 @@
+:root {
+  --primary: #FF6B6B;
+  --secondary: #4ECDC4;
+  --accent: #FFE66D;
+  --dark: #292F36;
+  --light: #F7FFF7;
+  --button: #6B5B95;
+  --button-hover: #8A6BBE;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.calculator-container {
+  background: rgba(41, 47, 54, 0.85);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 230, 109, 0.4),
+              0 0 0 5px var(--accent),
+              0 0 0 10px rgba(41, 47, 54, 0.8);
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, 
+    var(--primary), 
+    var(--secondary), 
+    var(--accent), 
+    var(--primary));
+  z-index: -1;
+  filter: blur(20px);
+  opacity: 0.7;
+  animation: gradientBG 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+input, select {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(247, 255, 247, 0.9);
+  color: var(--dark);
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+  outline: 3px solid var(--accent);
+  transform: scale(1.02);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23292F36'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1rem;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+button {
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: var(--button);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 0 0 darken(--button, 20%),
+              0 0 10px rgba(107, 91, 149, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 0 darken(--button, 20%),
+              0 0 15px rgba(138, 107, 190, 0.7);
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 0 darken(--button, 20%);
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.result {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  min-height: 20px;
+  border-left: 5px solid var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px rgba(255, 230, 109, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 230, 109, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(255, 230, 109, 0.5); }
+}
+
+/* 8-bit pixel elements */
+.pixel-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+}
+
+.top-left { top: 0; left: 0; border-radius: 0 0 10px 0; }
+.top-right { top: 0; right: 0; border-radius: 0 0 0 10px; }
+.bottom-left { bottom: 0; left: 0; border-radius: 0 10px 0 0; }
+.bottom-right { bottom: 0; right: 0; border-radius: 10px 0 0 0; }
+
+/* Responsive design */
+@media (max-width: 480px) {
+  h1 { font-size: 1.2rem; }
+  .calculator-container { padding: 1.5rem; }
+  input, select, button { padding: 0.7rem; }
+}

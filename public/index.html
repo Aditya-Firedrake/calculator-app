@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="calculator-container">
+    <div class="pixel-corner top-left"></div>
+    <div class="pixel-corner top-right"></div>
+    <div class="pixel-corner bottom-left"></div>
+    <div class="pixel-corner bottom-right"></div>
+    
+    <h1>MATH QUEST</h1>
+    <div class="calculator">
+      <div class="input-group">
+        <input type="number" id="num1" placeholder="FIRST NUM" required>
+        <select id="operation">
+          <option value="add">+ ATTACK</option>
+          <option value="subtract">- DEFEND</option>
+          <option value="multiply">× POWER</option>
+          <option value="divide">÷ SHARE</option>
+        </select>
+        <input type="number" id="num2" placeholder="SECOND NUM" required>
+      </div>
+      <button id="calculate">START BATTLE</button>
+      <div id="result" class="result">READY!</div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
